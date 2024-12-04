@@ -2,6 +2,10 @@
   "name": "worker-wasm",
   "module": "index.ts",
   "type": "module",
+  "engines": {
+    "bun": "1.1.13",
+    "zig": "0.14.0"
+  },
   "scripts": {
     "dev": "bun run build-wasm && vite",
     "build": "bun run build-wasm && vite build && cp worker/add.wasm dist/assets/add.wasm",
