@@ -1,0 +1,17 @@
+{
+  "name": "worker-wasm",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run build-wasm && vite",
+    "build": "bun run build-wasm && vite build && cp worker/add.wasm dist/assets/add.wasm",
+    "build-wasm": "zig build-exe worker/add.zig -target wasm32-freestanding -fno-entry -femit-bin=worker/add.wasm -rdynamic -OReleaseSmall"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "vite": "^6.0.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
